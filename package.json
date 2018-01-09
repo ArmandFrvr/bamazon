@@ -1,0 +1,24 @@
+{
+  "name": "bamazon",
+  "version": "1.0.0",
+  "description": "Storefront application",
+  "main": "bamazonCustomer.js",
+  "dependencies": {
+    "inquirer": "^5.0.0",
+    "mysql": "^2.15.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArmandFrvr/bamazon.git"
+  },
+  "author": "Alwyn Durham",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArmandFrvr/bamazon/issues"
+  },
+  "homepage": "https://github.com/ArmandFrvr/bamazon#readme"
+}
