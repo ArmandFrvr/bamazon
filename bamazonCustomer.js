@@ -38,12 +38,15 @@ if (!String.prototype.padEnd) {
     };
 }
 
+// Currency formatter
+const currency = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  minimumFractionDigits: 2,
+});
 
 
-
-
-
-
+// Create DB connection
 const mysql = require("mysql");
 
 const connection = mysql.createConnection({
@@ -71,7 +74,7 @@ connection.connect(function(err){
     for(let i = 0; i < res.length; i++){
       console.log(res[i].item_id.toString().padStart(10) + "  "
                   + res[i].product_name.padEnd(30) + "  "
-                  + res[i].price.toString().padStart(10));
+                  + currency.format(res[i].price).padStart(10));
     }
     console.log("");
 
@@ -133,15 +136,16 @@ connection.connect(function(err){
     inquirer.prompt(questions).then(answers => {
 
       console.log("   Buying " + answers.quantityToBuy + " of \""
-                   + res[productIdx].product_name + "\" at $"
-                   + res[productIdx].price + " each.");
+                   + res[productIdx].product_name + "\" at "
+                   + currency.format(res[productIdx].price) + " each.");
 
       let updateQuery = "UPDATE products SET stock_quantity = ? WHERE item_id = ?";
       let newAmt = res[productIdx].stock_quantity - answers.quantityToBuy;
 
       connection.query(updateQuery, [newAmt, answers.productToBuy], function(err, res2) {
         if(err) throw err;
-        console.log("   Your total is: $" + res[productIdx].price * answers.quantityToBuy);
+        console.log("   Your total is: "
+                      + currency.format(res[productIdx].price * answers.quantityToBuy));
       });
 
       connection.end();
