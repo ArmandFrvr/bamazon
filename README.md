@@ -12,4 +12,5 @@ The customer view allows users to enter the item they want to buy, and the desir
 ![Successful purchase transaction](/images/cust-success.png)
 
 If the user enters invalid input, or if the desired quantity is not available, Bamazon will display an appropriate error message and allow the user to make a different selection.
+
 ![Failed transaction attempts](/images/cust-errors.png)
