@@ -22,5 +22,3 @@ values("Organic Catnip", "Pets", 6.99, 10),
       ("Dish Soap", "Household", 2.99, 8),
       ("Shampoo", "Personal Care", 2.95, 3),
       ("Soap", "Personal Care", 1.99, 2);
-      
-select * from products;
