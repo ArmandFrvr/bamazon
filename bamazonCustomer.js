@@ -48,14 +48,8 @@ const currency = new Intl.NumberFormat('en-US', {
 
 // Create DB connection
 const mysql = require("mysql");
-
-const connection = mysql.createConnection({
-  host: "127.0.0.1",
-  port: 3306,
-  user: "root",
-  password: "EYs@&y8zIA9ncH2",
-  database: "bamazon"
-});
+const connectionData = require("./database.js");
+const connection = mysql.createConnection(connectionData.database);
 
 connection.connect(function(err){
   if(err) throw err;

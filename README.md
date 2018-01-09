@@ -3,7 +3,7 @@
 
 ## Installation
 1. Use the script.sql file to create the database and fill it with some sample values.
-1. Edit the connection variable in the bamazonCustomer.js file to point to your database.
+1. Edit the connection information in the database.js file to point to your database.
 1. From the command prompt, type `npm install`.
 
 ## Customer View
